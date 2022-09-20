@@ -8,7 +8,7 @@ import Button from './index'
 test("should not allowed click button id isDisabled is present", () => {
     const { container } = render(<Button isDisabled></Button>)
 
-    expect(container.querySelector('span.disabled')).toBeInTheDocument()
+    expect(container.querySelector('span.btn-disabled')).toBeInTheDocument()
 });
 
 test("should render loading/spinner", () => {
