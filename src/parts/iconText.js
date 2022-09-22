@@ -5,7 +5,7 @@ import Button from "elements/Button";
 export default function iconText() {
   return (
     <Button className="brand-text-icon" href="" type="link">
-        kosan<span className="text-grey-900">Jay.</span>
+        <span className="text-accent">kosan</span><span className="text-primary">Jay.</span>
     </Button>
   )
 }
