@@ -3,8 +3,4 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-.brand-text-icon {
-    font-size: 26px;
-    font-weight: 500;
-    font-family: "Poppins", sans-serif;
-}
+@import "./custom-style.scss"

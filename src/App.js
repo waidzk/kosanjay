@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import "./assets/style/index.css"
 import LandingPage from 'pages/LandingPage';
@@ -6,8 +6,10 @@ import LandingPage from 'pages/LandingPage';
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Route path="/" component={LandingPage}></Route>
+      <Router >
+        <Routes>
+        <Route path="/" element={<LandingPage />}></Route>
+        </Routes>
       </Router>
     </div>
   );
