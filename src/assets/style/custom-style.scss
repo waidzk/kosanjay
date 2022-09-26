@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
 
+.font-poppins {
+    font-family: "Poppins", sans-serif;
+}
+
 .brand-text-icon {
     font-size: 26px;
     font-weight: 500;
@@ -9,4 +13,10 @@
 
 .active {
     @apply text-primary;
+}
+
+.btn-shadow {
+    -webkit-box-shadow: 0px 0px 80px -27px rgba(255, 200, 0, 1);
+    -moz-box-shadow: 0px 0px 80px -27px rgba(255, 200, 0, 1);
+    box-shadow: 0px 0px 80px -27px rgba(255, 200, 0, 1);
 }

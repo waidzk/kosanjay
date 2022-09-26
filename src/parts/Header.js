@@ -11,15 +11,12 @@ export default function Header() {
   }
 
   return (
-    // <div>
-    //   <h1>Hi</h1>
-    // </div>
-    <nav className='flex justify-between items-center mx-20 p-4'>
+    <nav className='flex justify-between items-center mx-28 p-4'>
       <div className='brand-icon'>
         <BrandIcon />
       </div>
       <div className='menu-link'>
-        <ul className='flex items-center'>
+        <ul className='flex items-center text-accent'>
           <li className={`link-item${getNavLinkClass("/")}`}>
             <Button className='nav-link mx-4 hover:underline duration-75' type='link' href='/'>
               Home
