@@ -28,7 +28,7 @@ export default function Hero(props) {
                     <p className='text-sm text-slate-400 w-[422px] mb-5'>
                         We provide what you need to enjoy your stay. It's time to get your boarding house quickly and right for you.
                     </p>
-                    <Button className='btn px-2 text-accent w-48 shadow-md shadow-[#ffc800]' hasShadow isPrimary onclick={showMostPicked}>
+                    <Button className='btn px-2 text-white w-48 shadow-md shadow-[#ffc800]' hasShadow isPrimary onclick={showMostPicked}>
                         Get your kosan now
                     </Button>
                     <div className='flex mt-28'>
@@ -66,6 +66,10 @@ export default function Hero(props) {
                             </h6>
                         </div>
                     </div>
+                </div>
+                <div className='w-1/2 flex items-center justify-center'>
+                    <img src={ImageHero} alt="Bed with a books" className='absolute z-10 w-[29rem] mr-10 mb-10'/>
+                    <img src={ImageHeroFrame} alt="Bed with a books frame" className='w-[29rem] ml-10 mt-10' />
                 </div>
             </div>
         </section>
