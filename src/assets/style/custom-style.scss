@@ -30,9 +30,3 @@ section {
 .card:hover .img-wrapper {
     transform: scale(1);
 }
-
-.bg-gradient-card {
-    @apply bg-gradient-to-tr;
-    @apply from-slate-900;
-    @apply to-transparent;
-}
