@@ -30,7 +30,11 @@ export default function Hero(props) {
                     <p className='text-sm text-slate-400 w-[422px] mb-6'>
                         We provide what you need to enjoy your stay. It's time to get your boarding house quickly and right for you.
                     </p>
-                    <Button className='btn px-2 text-slate-100 w-48 shadow-md shadow-[#ffc800]' hasShadow isPrimary onclick={showMostPicked}>
+                    <Button 
+                    className='btn px-2 text-slate-100 w-48 shadow-md shadow-[#ffc800]' 
+                    hasShadow 
+                    isPrimary 
+                    onClick={showMostPicked}>
                         Get your kosan now
                     </Button>
                     <div className='flex mt-20'>
