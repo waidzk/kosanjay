@@ -31,7 +31,7 @@ export default function Hero(props) {
             boarding house quickly and right for you.
           </p>
           <Button
-            className="btn px-2 text-slate-100 w-48 shadow-md shadow-[#ffc800]"
+            className="btn px-2 text-white w-48 shadow-md shadow-[#ffc800]"
             hasShadow
             isPrimary
             onClick={showMostPicked}
