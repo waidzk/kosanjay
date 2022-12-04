@@ -1,5 +1,5 @@
 import React from "react";
-import Fade from "react-reveal/Fade";
+import { Fade } from "react-awesome-reveal";
 
 import ImageHero from "assets/images/img-hero.jpg";
 import ImageHeroFrame from "assets/images/img-hero-frame.jpg";
@@ -21,7 +21,7 @@ export default function Hero(props) {
 
   return (
     <section className="mx-28 mt-5 p-4 font-poppins">
-      <Fade bottom>
+      <Fade cascade>
         <div className="flex">
           <div className="flex flex-col w-1/2">
             <h1 className="text-4xl text-accent font-bold mb-2 leading-relaxed">

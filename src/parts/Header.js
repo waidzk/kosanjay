@@ -4,11 +4,19 @@ import { useLocation } from "react-router-dom";
 import Button from "elements/Button";
 import BrandIcon from "parts/iconText";
 
-export default function Header() {
+export default function Header(props) {
   const location = useLocation();
   const getNavLinkClass = (path) => {
     return location.pathname === path ? " active" : "";
   };
+
+  if (props.isCentered) {
+    return (
+      <nav className="flex justify-center items-center mx-28 p-4">
+        <BrandIcon />
+      </nav>
+    );
+  }
 
   return (
     <nav className="flex justify-between items-center mx-28 p-4">

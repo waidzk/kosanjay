@@ -1,6 +1,6 @@
 import Button from "elements/Button";
 import React from "react";
-import Fade from "react-reveal/Fade";
+import { Fade } from "react-awesome-reveal";
 
 export default function Categories({ data }) {
   return data.map((category, index1) => {
@@ -9,9 +9,10 @@ export default function Categories({ data }) {
         className="mx-28 mt-5 p-4 font-poppins"
         key={`category-${index1}`}
       >
-        <Fade bottom>
+        <Fade cascade>
           <h4 className="mb-3 font-semibold">{category.name}</h4>
           <div className="grid grid-cols-4 gap-4 h-40">
+          <Fade cascade damping={0.1}>
             {category.items.length === 0 ? (
               <div className="items-center">
                 There is no property at this category
@@ -23,7 +24,6 @@ export default function Categories({ data }) {
                     className="item"
                     key={`category-${index1}-item-${index2}`}
                   >
-                    <Fade bottom delay={300 * index2}>
                       <div className="card h-full rounded-none">
                         {item.isPopular && (
                           <div className="tag z-30 bg-primary absolute top-0 right-0 text-white rounded-bl-2xl p-[7px] font-semibold">
@@ -52,11 +52,11 @@ export default function Categories({ data }) {
                           </span>
                         </div>
                       </div>
-                    </Fade>
                   </div>
                 );
               })
             )}
+            </Fade>
           </div>
         </Fade>
       </section>

@@ -3,8 +3,9 @@ import propTypes from "prop-types";
 
 import { DateRange } from "react-date-range";
 
-import "react-date-range/dist/styles.css";
-import "react-date-range/dist/theme/default.css";
+import "./index.scss";
+import 'react-date-range/dist/styles.css'; // main css file
+import 'react-date-range/dist/theme/default.css'; // theme css file
 
 import formatDate from "utils/formatDate";
 import iconCalendar from "assets/images/icons/ic_calendar.svg";
@@ -32,7 +33,8 @@ export default function Date(props) {
   });
 
   const refDate = useRef(null);
-  const handleClickOutside = (event) => {
+  const handleClickOutside = event => {
+    console.log(refDate);
     if (refDate && !refDate.current.contains(event.target)) {
       setIsShowed(false);
     }
@@ -48,30 +50,33 @@ export default function Date(props) {
 
   return (
     <div className={["form-control", props.outerClassName].join(" ")}>
-      <label className="input-group input-group-md">
-        <span>
-          <img src={iconCalendar} alt="icon calendar" />
+    <label className="label">
+        <span className="label-text text-slate-300">Pick date</span>
+      </label>
+      <label className="input-group">
+        <span className="bg-blue-900">
+          <img src={iconCalendar} alt="icon calendar" className="w-32" />
         </span>
-        <input
+      <input
           readOnly
           type="text"
-          placeholder={placeholder}
+          className="input input-bordered w-64"
           value={displayDate}
-          className="input input-bordered input-md"
+          placeholder={placeholder}
           onClick={() => setIsShowed(!isShowed)}
         />
-        {isShowed && (
-            <div className="date-range-wrapper">
-                <DateRange 
-                    editableDateInputs={true}
-                    onChange={datePickerChange}
-                    moveRangeOnFirstSelection={false}
-                    onRangeFocusChange={check}
-                    ranges={[value]}
-                />
-            </div>
-        )}
       </label>
+
+        {isShowed && (
+            <DateRange
+              className="shadow-md absolute date-range-wrapper"
+              editableDateInputs={true}
+              onChange={datePickerChange}
+              moveRangeOnFirstSelection={false}
+              onRangeFocusChange={check}
+              ranges={[value]}
+            />
+        )}
     </div>
   );
 }

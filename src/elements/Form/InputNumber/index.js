@@ -1,28 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 
 import propTypes from "prop-types";
 
 export default function Number(props) {
   const { value, placeholder, name, min, max, prefix, suffix, isSuffixPlural } = props;
 
-  const [inputValue, setInputValue] = useState(`${prefix}${value}${suffix}`);
-
   const onChange = (e) => {
     let value = String(e.target.value);
-    if (prefix) value = value.replace(prefix);
-    if (suffix) value = value.replace(suffix);
 
-    const patternNumeric = new RegExp("[0-9]*");
-    const isNumeric = patternNumeric.test(value);
-
-    if (isNumeric && +value <= max && +value >= min) {
+    if (+value <= max && +value >= min) {
       props.onChange({
         target: {
           name: name,
           value: +value,
         },
       });
-      setInputValue(`${prefix}${value}${suffix}${isSuffixPlural && value > 1 ? "s" : ""}`);
     }
   };
 
@@ -49,23 +41,24 @@ export default function Number(props) {
   return (
     <div className={["form-control", props.outerClassName].join(" ")}>
       <label className="label">
-        <span className="label-text">Enter amount</span>
+        <span className="label-text text-slate-300">How many night(s)?</span>
       </label>
       <label className="input-group">
-        <button className="btn btn-square" onClick={minus}>
+        <button className="btn btn-square bg-red-600 border-none" onClick={minus}>
           -
         </button>
         <input
           min={min}
           max={max}
           name={name}
+          readOnly
           pattern="[0-9]*"
           placeholder={placeholder ? placeholder : "0"}
-          value={String(inputValue)}
+          value={`${prefix}${value}${suffix}${isSuffixPlural && value > 1 ? "s" : ""}`}
           onChange={onChange}
-          className="input input-bordered"
+          className="input input-bordered w-24"
         />
-        <button className="btn btn-square" onClick={plus}>
+        <button className="btn btn-square bg-blue-600 border-none" onClick={plus}>
           +
         </button>
       </label>
@@ -83,7 +76,7 @@ Number.defaultProps = {
 Number.propTypes = {
   value: propTypes.oneOfType([propTypes.string, propTypes.number]),
   onChange: propTypes.func,
-  isSuffixplural: propTypes.bool,
+  isSuffixPlural: propTypes.bool,
   placeholder: propTypes.string,
   outerClassName: propTypes.string,
 };

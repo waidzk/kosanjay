@@ -1,11 +1,11 @@
 import Button from "elements/Button";
 import React from "react";
-import Fade from "react-reveal/Fade";
+import { Fade } from "react-awesome-reveal";
 
 export default function MostPicked(props) {
   return (
     <section className="mx-28 mt-5 p-4 font-poppins" ref={props.refMostPicked}>
-      <Fade bottom>
+    <Fade cascade>
         <h2 className="text-2xl font-semibold">Most Picked</h2>
         <div className="grid grid-rows-4 grid-cols-3 gap-4 h-96 mt-4">
           {props.data.map((item, index) => {
@@ -14,7 +14,6 @@ export default function MostPicked(props) {
                 key={`mostpicked-${index}`}
                 className={index === 0 ? " row-span-4" : " row-span-2"}
               >
-                <Fade bottom delay={300 * index}>
                   <div className="card gap-4 h-full">
                     <div className="tag z-30 bg-primary absolute top-0 right-0 text-white rounded-bl-2xl p-[7px] font-semibold">
                       ${item.price}
@@ -42,12 +41,11 @@ export default function MostPicked(props) {
                       </div>
                     </div>
                   </div>
-                </Fade>
               </div>
             );
           })}
         </div>
-      </Fade>
+</Fade>
     </section>
   );
 }

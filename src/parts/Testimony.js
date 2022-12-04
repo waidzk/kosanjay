@@ -1,13 +1,13 @@
 import Star from "elements/Star";
 import React from "react";
-import Fade from "react-reveal/Fade";
+import { Fade } from "react-awesome-reveal";
 
 import TestimonyAccent from "assets/images/image-testimonial-frame.jpg";
 import Button from "elements/Button";
 
 export default function Testimony({ data }) {
   return (
-    <Fade bottom>
+    <Fade>
       <section className="mx-28 mt-5 p-20 font-poppins">
         <div className="grid grid-cols-2 h-full w-full">
           <div
