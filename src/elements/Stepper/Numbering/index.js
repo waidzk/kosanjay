@@ -4,25 +4,24 @@ import propTypes from "prop-types";
 
 export default function Numbering({ style, className, data, current }) {
   const KeysOfData = Object.keys(data);
-
   return (
     <div>
-      <ol className={["stepper", className].join(" ")} style={style}>
+      <ul className={["steps", className].join(" ")} style={style}>
         {KeysOfData.map((list, index) => {
-          let isActive = list === current ? "active" : "";
+          let isActive = list === current ? "step-primary" : "";
           if (index + 1 === KeysOfData.length) {
             isActive = "";
             return null;
           }
 
           return (
-            <li key={`list-${index}`} className={[isActive].join(" ")}>
+            <li key={`list-${index}`} className={["step", isActive].join(" ")}>
                 {index + 1}
             </li>
           )
 
         })}
-      </ol>
+      </ul>
     </div>
   );
 }

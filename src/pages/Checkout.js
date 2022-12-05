@@ -2,12 +2,12 @@ import React, { Component } from "react";
 
 import Header from "parts/Header";
 import Button from "elements/Button";
-import Stepper, {
-  Numbering,
-  Meta,
-  MainContent,
-  Controller,
-} from "elements/Stepper";
+
+import Stepper from "elements/Stepper";
+import Numbering from "elements/Stepper/Numbering";
+import MainContent from "elements/Stepper/MainContent";
+import Meta from "elements/Stepper/Meta";
+import Controller from "elements/Stepper/Controller";
 
 import BookingInformation from "parts/Checkout/BookingInformation";
 import Payment from "parts/Checkout/Payment";
@@ -51,7 +51,7 @@ export default class Checkout extends Component {
     const steps = {
       bookingInformation: {
         title: "Booking Information",
-        description: "Please fill up the black fields below",
+        description: "Please fill up the blank fields below",
         content: (
           <BookingInformation
             data={data}
@@ -79,17 +79,15 @@ export default class Checkout extends Component {
         content: <Completed />,
       },
     };
+
     return (
       <>
         <Header isCentered />
-        <Stepper steps={steps}>
-          {(prevStep, nextStep, CurrentStep, steps) => {
+
+        <Stepper steps={steps} initialStep="">
+          {(prevStep, nextStep, CurrentStep, steps) => (
             <>
-              <Numbering
-                data={steps}
-                current={CurrentStep}
-                style={{ marginBottom: 50 }}
-              />
+              <Numbering data={steps} current={CurrentStep} />
 
               <Meta data={steps} current={CurrentStep} />
 
@@ -163,14 +161,14 @@ export default class Checkout extends Component {
                     isBlock
                     isPrimary
                     hasShadow
-                    href=""
+                    href="/"
                   >
                     Back to Home
                   </Button>
                 </Controller>
               )}
-            </>;
-          }}
+            </>
+          )}
         </Stepper>
       </>
     );
