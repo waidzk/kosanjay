@@ -24,7 +24,7 @@ export default function File(props) {
           ref={refInputFile}
           name={name}
           type="file"
-          className={["input input-bordered hidden", inputClassName].join(" ")}
+          className={["file-input input-bordered hidden", inputClassName].join(" ")}
           value={value}
           onChange={props.onChange}
         />

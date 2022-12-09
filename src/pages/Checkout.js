@@ -80,6 +80,7 @@ export default class Checkout extends Component {
       },
     };
 
+
     return (
       <>
         <Header isCentered />
@@ -99,7 +100,6 @@ export default class Checkout extends Component {
                     data.lastName !== "" &&
                     data.email !== "" &&
                     data.phone !== "" && (
-                      //fade
                       <Button
                         className="btn mb-3"
                         type="button"
@@ -112,7 +112,7 @@ export default class Checkout extends Component {
                       </Button>
                     )}
                   <Button
-                    className="btn"
+                    className="btn btn-outline btn-primary"
                     type="link"
                     isBlock
                     isLight
@@ -142,13 +142,13 @@ export default class Checkout extends Component {
                       </Button>
                     )}
                   <Button
-                    className="btn"
+                    className="btn btn-outline btn-primary"
                     type="button"
                     isBlock
                     isLight
                     onClick={prevStep}
                   >
-                    Cancel
+                    Back
                   </Button>
                 </Controller>
               )}
@@ -156,7 +156,7 @@ export default class Checkout extends Component {
               {CurrentStep === "completed" && (
                 <Controller>
                   <Button
-                    className="btn"
+                    className="btn btn-outline btn-primary"
                     type="link"
                     isBlock
                     isPrimary

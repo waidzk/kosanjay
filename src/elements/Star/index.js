@@ -24,7 +24,6 @@ export default function Star({ className, value, height, width, spacing }) {
     );
   }
   if (decimals > 0 && value <= 5)
-  console.log(leftPos);
     star.push(
       <div
         className="star"

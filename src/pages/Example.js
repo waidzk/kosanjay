@@ -10,7 +10,7 @@ export default class Example extends Component {
   ];
 
     return (
-      <div className="flex justify-center items-center h-screen">
+      <div className="flex flex-col justify-center items-center h-screen">
         <Breadcrumb data={breadcrumb} />
       </div>
     );
