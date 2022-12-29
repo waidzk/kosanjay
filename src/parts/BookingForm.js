@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import propTypes from "prop-types";
 
 import InputNumber from "elements/Form/InputNumber";
@@ -65,12 +64,28 @@ export default class BookingForm extends Component {
     }
   }
 
+  startBooking = () => {
+    const { data } = this.state;
+    this.props.startBooking({
+      _id: this.props.itemDetails._id,
+      duration: data.duration,
+      date: {
+        startDate: data.date.startDate,
+        endDate: data.date.endDate,
+      },
+    });
+  };
+
   render() {
     const { data } = this.state;
     const { itemDetails, startBooking } = this.props;
     return (
       <section className="border m-0 border-black p-5 rounded-md">
-        <h2 className="text-lg">Start from <span className="text-green-300">IDR.{itemDetails.price}</span>/ {itemDetails.unit}</h2>
+        <h2 className="text-lg">
+          Start from{" "}
+          <span className="text-green-300">IDR.{itemDetails.price}</span>/{" "}
+          {itemDetails.unit}
+        </h2>
         <div className="flex p-2">
           <InputNumber
             max={30}
@@ -81,10 +96,28 @@ export default class BookingForm extends Component {
             value={data.duration}
             outerClassName="m-2"
           />
-          <InputDate outerClassName="m-2" onChange={this.updateData} name="date" value={data.date} />
+          <InputDate
+            outerClassName="m-2"
+            onChange={this.updateData}
+            name="date"
+            value={data.date}
+          />
         </div>
-        <span className="text-accent">TOTAL : IDR.{itemDetails.price * data.duration} <span className="text-slate-300">per</span> {data.duration} {itemDetails.unit}</span>
-        <Button className="btn text-white" hasShadow isPrimary isBlock>Continue to Book</Button>
+        <span className="text-accent">
+          TOTAL : IDR.{itemDetails.price * data.duration}{" "}
+          <span className="text-slate-300">per</span> {data.duration}{" "}
+          {itemDetails.unit}
+        </span>
+        <Button
+          className="btn text-white"
+          hasShadow
+          isPrimary
+          isBlock
+          onClick={this.startBooking}
+          router={'/checkout'}
+        >
+          Continue to Book
+        </Button>
       </section>
     );
   }
