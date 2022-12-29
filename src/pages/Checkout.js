@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 import Header from "parts/Header";
 import Button from "elements/Button";
@@ -15,7 +16,7 @@ import Completed from "parts/Checkout/Completed";
 
 import ItemDetails from "json/itemDetails.json";
 
-export default class Checkout extends Component {
+class Checkout extends Component {
   state = {
     data: {
       firstName: "",
@@ -43,11 +44,13 @@ export default class Checkout extends Component {
 
   render() {
     const { data } = this.state;
-
-    const checkout = {
-      duration: 3,
-    };
-
+    const { checkout } = this.props;
+    
+    if(!checkout)
+    return<div className="w-full h-screen flex flex-col justify-center items-center"> 
+      <h1 className="text-xl text-accent mb-2">Pilih Kosan dulu</h1>
+      <Button className="btn btn-primary text-accent" type="link" href="/">Back</Button>
+    </div>
     const steps = {
       bookingInformation: {
         title: "Booking Information",
@@ -174,3 +177,9 @@ export default class Checkout extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+  checkout: state.checkout,
+})
+
+export default connect(mapStateToProps)(Checkout);

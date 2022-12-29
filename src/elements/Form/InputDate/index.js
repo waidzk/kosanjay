@@ -68,7 +68,7 @@ export default function Date(props) {
 
       {isShowed && (
         <DateRange
-          className="shadow-md absolute date-range-wrapper"
+          className="shadow-md absolute z-10 date-range-wrapper"
           editableDateInputs={true}
           onChange={datePickerChange}
           moveRangeOnFirstSelection={false}

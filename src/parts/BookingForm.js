@@ -1,11 +1,14 @@
 import React, { Component } from "react";
+
+import { withRouter } from "react-router-dom";
+
 import propTypes from "prop-types";
 
 import InputNumber from "elements/Form/InputNumber";
 import InputDate from "elements/Form/InputDate";
 import Button from "elements/Button";
 
-export default class BookingForm extends Component {
+class BookingForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -74,6 +77,7 @@ export default class BookingForm extends Component {
         endDate: data.date.endDate,
       },
     });
+    this.props.history.push('/checkout');
   };
 
   render() {
@@ -114,7 +118,6 @@ export default class BookingForm extends Component {
           isPrimary
           isBlock
           onClick={this.startBooking}
-          router={'/checkout'}
         >
           Continue to Book
         </Button>
@@ -127,3 +130,5 @@ BookingForm.propTypes = {
   itemDetails: propTypes.object,
   startBooking: propTypes.func,
 };
+
+export default withRouter(BookingForm)

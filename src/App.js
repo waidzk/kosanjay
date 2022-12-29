@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import "./assets/style/index.css"
 import LandingPage from 'pages/LandingPage';
@@ -11,13 +11,11 @@ function App() {
   return (
     <div className="App">
       <Router >
-        <Routes>
-        <Route path="/" element={<LandingPage />}></Route>
-        <Route path="/properties/:id" element={<DetailsPage />}></Route>
-        <Route path="/checkout" element={<Checkout />}></Route>
-        <Route path="/example" element={<Example />}></Route>
-        <Route path="/exampleinputnumber" element={<ExampleInputNumber />}></Route>
-        </Routes>
+        <Route exact path="/" component={LandingPage}></Route>
+        <Route exact path="/properties/:id" component={DetailsPage}></Route>
+        <Route exact path="/checkout" component={Checkout}></Route>
+        <Route exact path="/example" component={Example}></Route>
+        <Route exact path="/exampleinputnumber" component={ExampleInputNumber}></Route>
       </Router>
     </div>
   );
