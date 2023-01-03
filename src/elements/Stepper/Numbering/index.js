@@ -5,7 +5,6 @@ import propTypes from "prop-types";
 export default function Numbering({ style, className, data, current }) {
   const KeysOfData = Object.keys(data);
   const indexStep = KeysOfData.indexOf(current);
-  console.log(indexStep)
 
   return (
     <div className="flex justify-center">

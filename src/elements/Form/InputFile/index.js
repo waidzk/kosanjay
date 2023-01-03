@@ -1,7 +1,9 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import propTypes from "prop-types";
 
 export default function File(props) {
+
+  const [FileName, setFileName] = useState("");
   const {
     value,
     placeholder,
@@ -15,6 +17,16 @@ export default function File(props) {
 
   const refInputFile = useRef(null);
 
+  const onChange = (event) => {
+    setFileName(event.target.value)
+    props.onChange({
+      target: {
+        name: event.target.name,
+        value: event.target.files
+      }
+    })
+  }
+
   return (
     <div className={["form-control", outerClassName].join(" ")}>
       <label className="input-group">
@@ -25,12 +37,12 @@ export default function File(props) {
           name={name}
           type="file"
           className={["file-input input-bordered hidden", inputClassName].join(" ")}
-          value={value}
-          onChange={props.onChange}
+          value={FileName}
+          onChange={onChange}
         />
         <input 
             onClick={() => refInputFile.current.click()}
-            defaultValue={value}
+            defaultValue={FileName}
             placeholder={placeholder}
             className={["input input-bordered", inputClassName].join(" ")}
         />

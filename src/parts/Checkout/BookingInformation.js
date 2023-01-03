@@ -4,11 +4,12 @@ import InputText from "elements/Form/InputText";
 
 export default function BookingInformation(props) {
   const { data, ItemDetails, checkout } = props;
+
   return (
     <section className="flex justify-center items-center w-full m-0">
       <div className="w-1/2 flex justify-end p-5">
       <div className="w-96">
-        <img src={ItemDetails.imageUrls[0].url} alt={ItemDetails.name} className="w-96"/>
+        <img src={`${process.env.REACT_APP_HOST}/${ItemDetails.imageId[0].imageUrl}`} alt={ItemDetails.name} className="w-96"/>
         <div className="flex justify-between pt-2">
           <div className="flex flex-col text-accent">
             <span className="font-semibold">{ItemDetails.name}</span>

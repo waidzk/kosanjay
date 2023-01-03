@@ -8,14 +8,18 @@ export default function PageDetailDescription({ data }) {
         {HtmlReactParser(data.description)}
       </div>
       <div className="icons grid grid-cols-3">
-        {data.features.map((feature, index) => {
-          return (
-            <span key={`feature-${index}`} className="m-5">
-              <img src={feature.imageUrl} alt={feature.name} />
-              <span>{feature.qty} {feature.name}</span>
-            </span>
-          );
-        })}
+        {data.featureId.length === 0
+          ? "Tidak ada Feature"
+          : data.featureId.map((feature, index) => {
+              return (
+                <span key={`feature-${index}`} className="m-5">
+                  <img src={`${process.env.REACT_APP_HOST}/${feature.imageUrl}`} alt={feature.name} className="w-10"/>
+                  <span>
+                    {feature.qty} {feature.name}
+                  </span>
+                </span>
+              );
+            })}
       </div>
     </section>
   );

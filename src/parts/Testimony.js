@@ -15,7 +15,7 @@ export default function Testimony({ data }) {
             style={{ margin: `30px 60px 0 30px` }}
           >
             <img
-              src={data.imageUrl}
+              src={`${process.env.REACT_APP_HOST}/${data.imageUrl}`}
               alt="Testimonial"
               className="absolute z-20 w-[424.84px]"
             />
@@ -23,7 +23,7 @@ export default function Testimony({ data }) {
               src={TestimonyAccent}
               alt="Testimonial frame"
               className="absolute z-10 w-[424.84px]"
-              style={{ margin: `-30px 0 0 -30px` }}
+              style={{ margin: `-30px 0 0 -50px` }}
             />
           </div>
           <div className="flex flex-col justify-center h-[30rem]">
